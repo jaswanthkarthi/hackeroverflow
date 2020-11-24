@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>IG Caption</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,700,900" rel="stylesheet">
+    <link href="/hackeroverflow/css/commoncss.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/hackeroverflow/js/coordinates.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/hackeroverflow/js/igcaption-main.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/hackeroverflow/js/Util.js" charset="UTF-8"></script>
+
+</head>
+<body>
+
+<div class="background-wave" id="width-img"><img src="/hackeroverflow/images/rect-500.svg" id="bgimg-wave"></div>
+<div id="toast" style="position: absolute;width: 100%;height: 40px;z-index: 1"></div>
+<div id="main2"></div>
+<section class="mainbox" id="main">
+
+    <div class="heading-bar">IGCAPTION</div>
+
+    <div style="background-color: white" class="editorbox">
+
+        <div class="editor-header">
+
+            <div class="editor-header-text">Text Styles :</div>
+
+            <div style="display: grid;grid-template-columns: 150px 30px;grid-column-gap: 10px;">
+            <button id="fontChosen" style="outline: none" data-font="NORMAL" data-info-normal="true">Normal</button>
+            <div class="droparrow" data-dropped="false" id="font">
+                <svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                        <g id="main-page" transform="translate(-881.000000, -126.000000)" stroke="#0000AF" stroke-width="2">
+                            <polyline id="back" points="892 127 887 132 882 127"></polyline>
+                        </g>
+                    </g>
+                </svg></div>
+                <div>
+                <div class="dropdown-content" id="dropdown-content-id">
+                    <div id="NORMAL" data-value="NORMAL" data-font="Normal" onclick="changeValue(this)">Normal &nbsp;(Default)</div>
+                    <div id="NORMAL_SANS" data-value="NORMAL_SANS" data-font="Sans" onclick="changeValue(this)">𝖭𝗈𝗋𝗆𝖺𝗅 𝖲𝖺𝗇𝗌</div>
+                    <div id="BOLD_SANS" data-value="BOLD_SANS" data-font="Bold Sans" onclick="changeValue(this)">𝗕𝗼𝗹𝗱 𝗦𝗮𝗻𝘀</div>
+                    <div id="ITALIC_SANS" data-value="ITALIC_SANS" data-font="Italic Sans" onclick="changeValue(this)">𝘐𝘵𝘢𝘭𝘪𝘤 𝘚𝘢𝘯𝘴</div>
+                    <div id="BOLD_ITALIC_SANS" data-value="BOLD_ITALIC_SANS" data-font="Boltalic Sans" onclick="changeValue(this)">𝘽𝙤𝙡𝙙 & 𝙄𝙩𝙖𝙡𝙞𝙘 𝙎𝙖𝙣𝙨</div>
+                    <div id="BUBBLE_TEXT_BLACKED" data-value="BUBBLE_TEXT_BLACKED" data-font="Bubble" onclick="changeValue(this)">🅑🅤🅑🅑🅛🅔</div>
+                  <div id="SQUARE_TEXT_NORMAL" data-value="SQUARE_TEXT_NORMAL" data-font="Square - 1" onclick="changeValue(this)">🅂🅀🅄🄰🅁🄴 - 1</div>
+                    <div id="SQUARE_TEXT_BLACKED" data-value="SQUARE_TEXT_BLACKED" data-font="Square - 2" onclick="changeValue(this)">🆂🆀🆄🅰🆁🅴 - 2</div>
+                    <div id="MONOSPACE_TEXT" data-value="MONOSPACE_TEXT" data-font="Monospace" onclick="changeValue(this)">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎</div>
+                    <div id="SPACING_TEXT" data-value="SPACING_TEXT" data-font="Spacer" onclick="changeValue(this)">Ｓｐａｃｅｒ</div>
+                </div>
+                </div>
+            </div>
+
+
+        </div>
+<center>
+        <div style="margin-top: 12px;">
+
+            <svg width="302px" height="9px" viewBox="0 0 302 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.0994233631">
+                    <g id="main-page-copy" transform="translate(-689.000000, -236.000000)" fill="#000000" fill-rule="nonzero">
+                        <path id="Path-3-Copy" d="M990.486664,235.998356 L990.51333,243.998311 L989.513336,244.001644 L989.501,240.501 L690.501,241.497 L690.51333,244.998311 L689.513336,245.001644 L689.48667,237.001689 L690.486664,236.998356 L690.498,240.498 L989.498,239.502 L989.48667,236.001689 L990.486664,235.998356 Z"></path>
+                    </g>
+                </g>
+            </svg>
+
+        </div>
+</center>
+
+        <textarea class="textarea" id="editor" placeholder="Write Your Caption..." autocapitalize="off" autocomplete="off" maxlength="2200"></textarea>
+
+        <center>
+            <div style="margin-top: 10px;">
+
+                <svg width="302px" height="9px" viewBox="0 0 302 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.0994233631">
+                        <g id="main-page-copy" transform="translate(-689.000000, -236.000000)" fill="#000000" fill-rule="nonzero">
+                            <path id="Path-3-Copy" d="M990.486664,235.998356 L990.51333,243.998311 L989.513336,244.001644 L989.501,240.501 L690.501,241.497 L690.51333,244.998311 L689.513336,245.001644 L689.48667,237.001689 L690.486664,236.998356 L690.498,240.498 L989.498,239.502 L989.48667,236.001689 L990.486664,235.998356 Z"></path>
+                        </g>
+                    </g>
+                </svg>
+
+            </div>
+        </center>
+
+        <div class="editorbox-footer" id="mobile-view">
+            <center>Type “:” to get emoji suggestions</center>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div>
+        <div class="footer-text" style="margin-top: 1px"><span id="lineCount">0</span> Line breaks generated</div>
+        <div class="footer-text" style="margin-top: 3px;"><span id="charCount">0</span> / 2200 Characters</div>
+        <div class="footer-text" style="margin-top: 3px;"><span id="hashTagsCount">0</span> / 30 Hastags</div>
+    </div>
+        <div class="copybutton" onclick="copyToClipBoard(this);">
+
+            COPY & CONVERT
+
+        </div></div>
+
+    <div class="tagname" id="tag-name" style=""></div>
+    <div class="hashname" id="hash-name" style=""></div>
+</section>
+
+
+
+<script>
+
+    var fonts;
+    var xhttp =null;
+    var hashTagWarning=false;
+    var input="";
+    var timer=0;
+
+    document.getElementById('dropdown-content-id').style.display='none';
+
+    document.getElementById('editor').addEventListener('input', inputHandler);
+    document.getElementById('editor').onscroll=function(event){
+        document.getElementById("tag-name").innerHTML="";
+        document.getElementById("tag-name").style.display="none";
+        document.getElementById("hash-name").innerHTML="";
+        document.getElementById("hash-name").style.display="none";
+    };
+
+    window.onload=async function () {
+
+        GET("http://192.168.2.108:8080/hackeroverflow/json/fonts.json").then(
+            function(message) {
+                fonts=JSON.parse(message);
+            },
+            function(error) {
+                alert("Sorry Temporary Problem, will be fixed Soon!");
+
+            }
+        );
+    }
+
+    $(window).blur(function(e) {
+        document.getElementById("tag-name").innerHTML="";
+        document.getElementById("tag-name").style.display="none";
+        document.getElementById("hash-name").innerHTML="";
+        document.getElementById("hash-name").style.display="none";
+    });
+
+    $(document).ready(function() {
+        readyFunction();
+    });
+
+    $(document).on("click", function(event){
+        documentClickFunction()
+    });
+
+
+    $(window).resize(function() {
+        resizeFunction();
+
+    });
+
+</script>
+
+</body>
+</html>

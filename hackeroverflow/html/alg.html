@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+
+	<title>emoji picker</title>
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<script type="text/javascript" src="/hackeroverflow/js/emojis.js"></script>
+
+
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+
+body{
+
+position: relative;
+background-color: pink;
+
+}
+
+.emojitoolbox{
+
+z-index: 4;
+background-color: white;
+height: 340px;
+width:300px;
+position: absolute;
+border-radius: 12px;
+
+}
+
+.emojiheader{
+
+height: 13%;
+width: 100%;
+background-color: #F5F5F5;
+border-radius: 12px;
+
+}
+
+.size{
+
+font-size: 100%;
+margin-left: 28%;
+margin-top: 30%;
+
+}
+
+.size1{
+
+font-size: 110%;
+margin-left: 28%;
+margin-top: 30%;
+
+}
+
+.emojifooter{
+
+height: 87%;
+width: 100%;
+
+}
+
+.linehover{
+
+background-color: green;
+width: 100%;
+height: 6.4%;
+
+}
+
+.linehover1{
+
+background-color: green;
+width: 100%;
+height: 7.4%;
+
+
+}
+
+.searchcontainer{
+
+width: 100%;
+height: 17%;
+
+
+}
+
+.emojicontainer{
+
+width: 100%;
+height: 83%;
+
+}
+
+#em-search-button{
+
+height: 60%;
+width: 90%;
+border-radius: 20px;
+margin-top: 2.9%;
+margin-left: 5%;
+background-color: white;
+border-width: thin;
+border: solid 0.5px;
+border-color: rgba(128,128,128,0.5);
+outline: snow;
+text-align: center;
+color: rgba(0,0,0,0.7);
+}
+
+.searchstyle{
+
+position: absolute;
+opacity: 1;
+color: rgba(0,0,0,0.7);
+margin-top: 5.5%;
+    font-size: 85%;
+    margin-left: 10%;
+
+}
+
+.wrapper{
+
+position: absolute;
+width: 100%;
+height: 72.2%;
+
+
+}
+
+.emojititle{
+
+width: 100%;
+height: 10%;
+font-family: 'proxima-nova', sans-serif;
+opacity: 0.7;
+margin-top: 1.7%;
+font-size: 105%;
+}
+
+.emojicontent{
+
+margin-top: 1%;
+width: 100%;
+height: 87%;
+
+}
+
+.emoji-char{
+
+position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2.5%;
+    width: 9%;
+    font-size: 150%;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 2%;
+
+}
+
+.emoji-char1 {
+
+position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2.5%;
+    width: 9%;
+    font-size: 150%;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 2%;
+
+}
+
+.secondlayercontent{
+
+width: 94%;
+height: 100%;
+margin-left: 3%;
+overflow-y: scroll;
+padding-left: 0.7%;
+}
+
+}
+
+.centerelem{
+
+position: absolute;
+margin-left: 41%;
+margin-top: 1.5%;
+
+}
+
+span.green:hover, span.green:active {
+
+background-color: rgba(0,128,0,0.3);
+
+}
+
+} 
+
+.created {
+
+position: absolute;
+
+}
+
+</style>
+
+</head>
+<body style="height: 100%;">
+
+<div contenteditable="true" id="textarea" oninput="position(event)" style="height: 700px;
+    border-style: dashed;
+    position: absolute;
+    width: 900px;"></div>
+
+<div class="emojitoolbox" id="emojipicker" style="display: none;">
+	<div class="emojiheader">
+		
+<abbr title="People"><div style="width: 10%;float: left;height: 100%;" id="em-people" data="people" onclick="lineclicking(this.id)"><i class="fa fa-smile-o size1" aria-hidden="true"></i><div class="linehover1" style="margin-top: 45%;" id="lh-people"></div></div></abbr>
+
+<abbr title="Objects">
+<div style="width: 10%;float: left;height: 100%;" id="em-objects" data="objects" onclick="lineclicking(this.id)"><i class="fa fa-laptop size"></i><div class="linehover" style="margin-top: 46%;" id="lh-objects"></div></div></abbr>
+
+<abbr title="Activity">
+<div style="width: 10%;float: left;height: 100%;" id="em-activity" data="activity" onclick="lineclicking(this.id)"><i class="fa fa-futbol-o size" aria-hidden="true"></i><div class="linehover" style="margin-top: 46%;" id="lh-activity"></div></div></abbr>
+
+<abbr title="Nature">
+<div style="width: 10%;float: left;height: 100%;" id="em-nature" data="nature" onclick="lineclicking(this.id)"><i class="fa fa-leaf size" aria-hidden="true"></i><div class="linehover" style="margin-top: 46%;" id="lh-nature"></div></div></abbr>
+
+<abbr title="Travel">
+<div style="width: 10%;float: left;height: 100%;" id="em-travel" data="travel" onclick="lineclicking(this.id)"><i class="fa fa-globe size" aria-hidden="true"></i><div class="linehover" style="margin-top: 46%;" id="lh-travel"></div></div></abbr>
+
+<abbr title="Symbols">
+<div style="width: 10%;float: left;height: 100%;" id="em-symbols" data="symbols" onclick="lineclicking(this.id)"><i class="fa fa-lightbulb-o size1" aria-hidden="true"></i><div class="linehover1" style="margin-top: 46%;" id="lh-symbols"></div></div></abbr>
+
+<abbr title="Food">
+<div style="width: 10%;float: left;height: 100%;" id="em-food" data="food" onclick="lineclicking(this.id)"><i class="fa fa-cutlery size" aria-hidden="true"></i><div class="linehover" style="margin-top: 46%;" id="lh-food"></div></div></abbr>
+
+<abbr title="Flags">
+<div style="width: 10%;float: left;height: 100%;" id="em-flags" data="flags" onclick="lineclicking(this.id)"><i class="fa fa-flag-checkered size" aria-hidden="true"></i><div class="linehover" style="margin-top: 46%;" id="lh-flags"></div></div></abbr>
+
+<abbr title="Alphabets">
+<div style="width: 10%;float: left;height: 100%;" id="em-alphabets" data="alphabets" onclick="lineclicking(this.id)"><i class="fa fa-font size"></i><div class="linehover" style="margin-top: 46%;" id="lh-alphabets"></div></div></abbr>
+
+<abbr title="Close">
+<div style="width: 10%;float: left;height: 100%;" onmouseover="onhoverclosebutton()" onmouseleave="hoveroutclosebutton()" id="em-close" data="close" onclick="onclickclosebutton()"><i class="material-icons" style="font-size: 115%;color: red;opacity: 0.5;margin-top: 28%;margin-left: 10%;" id="closeicon">highlight_off</i><div class="linehover1" id="redline" style="margin-top: 32%;
+    background-color: red;
+    opacity: 0.6;
+    width: 90%;" id="lh-close"></div></div></abbr>
+
+	</div>
+
+	<div class="emojifooter">
+		
+		<div class="searchcontainer"><i class="fa fa-search searchstyle" aria-hidden="true"></i><input type="text" name="search" placeholder="Search the emoji's..." id="em-search-button" onkeyup="searchinput(event)" data-category="people">
+		</div>
+
+		<div class="emojicontainer">
+
+			<div class="wrapper" id="con-people" data="people"><div class="emojititle"><center class="centerelem">People</center></div>
+<div class="emojicontent"><div class="secondlayercontent" id="sec-people"></div></div>
+		</div>
+
+			<div class="wrapper" id="con-objects" data="objects"><div class="emojititle"><center class="centerelem">Objects</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-objects"></div></div></div>
+
+			<div class="wrapper" id="con-activity" data="activity"><div class="emojititle"><center class="centerelem">Activity</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-activity"></div></div></div>
+
+			<div class="wrapper" id="con-nature" data="nature"><div class="emojititle"><center class="centerelem">Nature</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-nature"></div></div></div>
+
+			<div class="wrapper" id="con-travel" data="travel"><div class="emojititle"><center class="centerelem">Travel</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-travel"></div></div></div>
+
+			<div class="wrapper" id="con-symbols" data="symbols"><div class="emojititle"><center class="centerelem">Symbols</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-symbols"></div></div></div>
+
+			<div class="wrapper" id="con-food" data="food"><div class="emojititle"><center class="centerelem">Food</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-food"></div></div></div>
+
+			<div class="wrapper" id="con-flags" data="flags"><div class="emojititle"><center class="centerelem">Flags</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-flags"></div></div></div>
+
+			<div class="wrapper" id="con-alphabets" data="alphabets"><div class="emojititle"><center class="centerelem">Alphabets</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-alphabets"></div></div></div>
+
+			<div class="wrapper" id="con-result" data="result"><div class="emojititle"><center class="centerelem">Search Results</center></div><div class="emojicontent"><div class="secondlayercontent" id="sec-result"></div></div></div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<script type="text/javascript">
+document.getElementById("emojipicker").style.display="none";
+//hide all the wrapper div's.
+function hideAllWrapper(){
+var wrapperarray=document.getElementsByClassName('wrapper');
+for(var i=0;i<wrapperarray.length;i++){
+wrapperarray[i].style.display="none";
+}
+}
+
+//hide all the line hovers.
+function hideAll(){
+var linehoverarray=document.getElementsByClassName('linehover');
+for(var i=0;i<linehoverarray.length;i++){
+linehoverarray[i].style.display="none";
+}
+
+var linehover1array=document.getElementsByClassName('linehover1');
+for(var i=0;i<linehover1array.length;i++){
+linehover1array[i].style.display="none";
+}
+
+}
+
+//if a category is clicked.
+function lineclicking(elementid){
+hideAll();
+hideAllWrapper();
+var id=elementid;
+id=id.slice(3,-1)+id.charAt(id.length-1);
+var id1="lh-"+id;
+document.getElementById(id1).style.display="";
+var id2="con-"+id;
+document.getElementById(id2).style.display="";
+var catval=document.getElementById("em-"+id).getAttribute("data");
+document.getElementById("em-search-button").setAttribute("data-category",catval);
+}
+
+
+//when first time loads only.
+hideAll();	
+hideAllWrapper();
+document.getElementById("lh-people").style.display="";
+document.getElementById("con-people").style.display="";
+emojiparserfromjson();
+
+//emoji.json into array variable.
+function emojiparserfromjson(){
+
+var data=array;
+
+for(var i=0;i<data.length;i++){
+
+var jsonObj=data[i];
+var categoryname=jsonObj.name;
+var emojisarray=jsonObj.emojis;
+
+for(var j=0;j<emojisarray.length;j++){
+
+var jsonObj2=emojisarray[j];
+var a = document.createElement("span");
+a.setAttribute("class", "emoji-char green");
+a.setAttribute("id", "order-"+jsonObj2.emoji_order);
+a.setAttribute("data-name", jsonObj2.name);
+a.setAttribute("data-charcode", jsonObj2.code_decimal);
+a.setAttribute("data-shortname", jsonObj2.shortname);
+a.setAttribute("onclick","clickemojievent(this.id)");
+a.innerHTML=jsonObj2.code_decimal;
+var keywordarray=jsonObj2.keywords;
+var keystr="";
+for(var key=0;key<keywordarray.length;key++){
+
+if(key==0){
+keystr+=keywordarray[key];
+}
+else{
+keystr+=","+keywordarray[key];
+}
+
+}
+
+a.setAttribute("data-keyword", keystr);
+
+document.getElementById("sec-"+categoryname).appendChild(a);
+
+}
+
+}
+
+}
+
+function clickemojievent(id){
+
+var text=document.getElementById("textarea").innerText;
+var text1=text=text.slice(0,-1);
+text1+=document.getElementById(id).innerHTML;
+document.getElementById("textarea").innerText=text1;
+document.getElementById("emojipicker").style.display="none";
+
+}
+
+function onhoverclosebutton(){
+
+document.getElementById("closeicon").style.opacity=0.8;
+document.getElementById("redline").style.display="";
+
+}
+
+function hoveroutclosebutton(){
+
+document.getElementById("closeicon").style.opacity=0.5;
+document.getElementById("redline").style.display="none";
+
+}
+
+function onclickclosebutton(){
+
+document.getElementById("emojipicker").style.display="none";
+
+}
+
+function position(id){
+
+// var a=document.getElementById(id).innerText;
+
+if(id.data==":"){
+
+var sel = window.getSelection();
+var range = sel.getRangeAt(0);
+var div = document.createElement("span");
+div.setAttribute("id","created");
+range.insertNode(div);
+var el=document.getElementById('created');
+var x = el.offsetLeft, y = el.offsetTop;
+// console.log(x,y);
+el.remove();
+showtheemoji(x,y);
+}
+}
+
+function showtheemoji(x,y){
+
+var x1=x;
+var y1=y;
+var x2=0;
+var y2=0;
+if(x1>160){
+
+x2=x1-150;
+y2=y1+20;
+
+}
+
+else{
+
+x2=x1;
+y2=y1+40;
+}
+// console.log(x1,y1);
+// console.log(x2,y2);
+document.getElementById("emojipicker").style.marginLeft=x2+"px";
+document.getElementById("emojipicker").style.marginTop=y2+"px";
+document.getElementById("emojipicker").style.display="";
+
+}
+
+function searchinput(event){
+
+let value = event.target.value;
+document.getElementById("sec-result").innerHTML="";
+if(value.length>2){
+
+
+if(value.indexOf(',') > -1) {
+	return
+}
+
+else {
+
+let arrayemojichar=document.getElementsByClassName("emoji-char");
+let resultsecondlayer=document.getElementById("sec-result");
+
+for(let i=0;i<arrayemojichar.length;i++){
+
+let element=arrayemojichar[i];
+let attributetext=element.getAttribute("data-keyword");
+if(attributetext.indexOf(value) > -1){
+
+
+//if want to add attributes to the span created in search results.Do here.
+let b = document.createElement("span");
+b.setAttribute("class", "emoji-char1 green");
+b.setAttribute("id", "order-"+i);
+b.setAttribute("onclick","clickemojievent(this.id)");
+b.innerHTML=element.getAttribute("data-charcode");
+resultsecondlayer.appendChild(b);
+
+}
+
+}
+hideAllWrapper();
+document.getElementById("con-result").style.display="";
+
+}
+}
+else{
+
+hideAllWrapper();
+let catdata=document.getElementById("em-search-button").getAttribute("data-category");
+document.getElementById("con-"+catdata).style.display="";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html style="">
+<head>
+	<title>space generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+	
+@import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+
+@media only screen and (min-width: 1025px){
+
+html{
+height: 100%
+}
+
+body{
+height: 100%;
+margin:0px;
+}
+
+.sidebar{
+
+height: 100%;
+background-color: #E1E1E1;
+width: 15%;
+opacity: 0.8;
+float: left;
+border-right: solid;
+border-left: solid;
+border-bottom: solid;
+border-color: #C7C7C7;
+
+}
+
+.area{
+
+height: 65%;
+width: 30%;
+border-color: pink;
+border-radius: 6px;
+font-size: 15px;
+outline: none;
+letter-spacing: 1px;
+/*font-family: 'proxima-nova', sans-serif;*/
+font-style: normal;
+font-weight: 400;
+resize: none;
+padding: 15px;
+margin-left: 35%;
+background-color: white;
+overflow: auto;
+
+}
+
+.heading{
+
+font-weight: 100;
+font-size: 2vw;
+color: black;
+opacity: 0.7;
+margin-left: 42%;
+margin-top: 2%;
+display: inline-block;
+font-family: 'proxima-nova', sans-serif;
+
+}
+
+.main{
+
+height: 100%;
+width: 84.35%;
+float: left;
+background-color: #F5F5F5;
+
+}
+
+.edit{
+
+background-color: #33373A;
+color: #C2C3C4;
+height: 8%;
+width: 100%;
+float: left;
+font-family: 'proxima-nova', sans-serif;
+
+}
+
+.editheader{
+
+margin-top: 10%;
+
+}
+
+.mainheader{
+
+height: 15%;
+width: 100%;
+
+}
+
+.mainfooter{
+
+height: 85%;
+width: 100%;
+
+}
+
+.mainchars{
+
+font-family:  'proxima-nova', sans-serif;
+margin-left: 4%;
+margin-top: 34%;
+font-size: 0.8vw;
+}
+
+#doc{
+
+display: none;
+
+}
+
+#created{
+
+display: none;
+
+}
+
+}
+
+</style>
+
+</head>
+<body>
+	<div class="sidebar">
+		
+<div class="edit"><center><p class="editheader">Loot Box</p></center></div>
+<img class="intLink" title="Bold" onclick="formatDoc('bold');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=" />
+<img class="intLink" title="Italic" onclick="formatDoc('italic');" src="data:image/gif;base64,R0lGODlhFgAWAKEDAAAAAF9vj5WIbf///yH5BAEAAAMALAAAAAAWABYAAAIjnI+py+0Po5x0gXvruEKHrF2BB1YiCWgbMFIYpsbyTNd2UwAAOw==" />
+	</div>
+
+<div class="main">	
+<div class="mainheader"><div class="heading">Space Generator</div></div>
+<!-- <textarea id="textarea" class="area" oninput="myscript()"></textarea> -->
+<div class="mainfooter">
+
+<div contenteditable='true' id='editor' class="area" ondrop="allowDrop(event)" onkeyup="myscript()" style="float: left;"></div>
+<div style="float: left;" class="mainchars">
+
+	<div><span id="charid">0</span>&nbsp;/&nbsp;2200&nbsp;Characters</div>
+	<div><span id="hashid">0</span>&nbsp;/&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hashtags</div>
+
+</div>	
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+	
+function formatDoc(sCmd, sValue) {
+   document.execCommand(sCmd, false, sValue); document.getElementById("editor").focus(); 
+}
+
+function myscript1(){
+
+var text = document.getElementById('editor').innerHTML;
+console.log(text);
+
+}
+
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    document.execCommand('insertLineBreak')
+    event.preventDefault()
+  }
+})
+
+
+document.querySelector("#editor").addEventListener("paste", function(e) {
+    e.preventDefault();
+    var text = e.clipboardData.getData("text/plain");
+
+    document.execCommand("insertText", false, text);
+    var text1 = document.getElementById('editor').innerHTML;
+    text1=text1.replace("<div>","<br>")
+
+//     if(text1.slice(-4)=="<br>"){
+// text1=text1.slice(0,-4);
+// }
+// else if(text1.slice(-1)=='\r'){
+// 	text1=text1.slice(0,-1)
+// }
+	
+// 	text1=text1.replace(/<br>|[\n\r]/g,"`");
+
+
+// text1=text1.replace(/<[^>]+>/g,"");
+// var textfiltered=addLineBreak(text1);
+//     textfiltered=textfiltered.replace(/`/g,"<br>");
+
+var regex = /([^><])<\/div>/g;
+var identifiers = text1.match(regex);
+
+
+var array=text1.split(/[^><]<\/div>/g);
+var text2="";
+for(var i=0;i<identifiers.length;i++){
+
+if(i==identifiers.length-1){
+text2+=array[i]+identifiers[i][0]+"<br>"+array[i+1];
+}
+else{
+text2+=array[i]+identifiers[i][0]+"<br>";
+}
+}
+text2=text2.replace(/<br>|[\n\r]/g,">");
+text2=text2.replace(/<[^>]+>/g,"");
+text2=text2.replace(/>/g,"<br>");
+
+    document.getElementById('editor').innerHTML=text2;
+myscript();
+});
+
+function allowDrop(event){
+
+event.preventDefault();
+  // var data = event.dataTransfer.getData("Text");
+  // document.execCommand("insertHTML", false, data);
+
+}
+
+function myscript(){
+
+var text1=document.getElementById('editor').innerHTML;
+var val=0;
+
+if(text1.slice(-4)=="<br>"){
+var text = document.getElementById('editor').innerText;
+document.getElementById("doc").innerHTML=text;
+val=document.getElementById("doc").value.length-1;
+}
+else{
+
+var text = document.getElementById('editor').innerText;
+document.getElementById("doc").innerHTML=text;
+val=document.getElementById("doc").value.length;
+// if(text.slice(-4)=="<br>"){
+// text=text.slice(0,-4);
+// text=text.replace(/<br>/g,"`");
+// }
+// else{
+// 	text=text.replace(/<br>|[\n\r]/g,"`");
+// }
+}
+
+document.getElementById("charid").innerHTML=val;
+
+}
+
+
+function addLineBreak(string){
+ var str=string;
+	var regex = /[`]+/gi, result, indices = [];
+while ( (result = regex.exec(str)) ) {
+    indices.push(result.index);
+}
+console.log(indices);
+
+for(var i=0;i<indices.length;i++){
+
+
+
+if(i==(indices.length-1)){
+
+if(indices[i]==(str.length-1)){
+str=str+"`";
+}
+else if(indices[i]==(str.length-2)){
+	str=str.slice(0,(i+indices[i]+1))+"`"+str[str.length-1];
+}
+else{
+str=str.slice(0,(i+indices[i]+1))+"`"+str.slice(i+indices[i]+1,-1)+str[str.length-1];
+}
+
+}
+
+else{
+
+str=str.slice(0,(i+indices[i]+1))+"`"+str.slice(i+indices[i]+1,-1)+str[str.length-1];
+}
+
+}
+
+return str;
+
+}
+
+</script>
+
+<textarea id="doc"></textarea>
+<div id="created"></div>
+</body>
+</html>
+

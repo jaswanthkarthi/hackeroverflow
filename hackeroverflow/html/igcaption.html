@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>igcaption</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        html,body{
+
+            margin: 0;
+
+        }
+
+        html{
+            background-color: #F2F2F6;
+        }
+
+        .background-wave{
+            z-index: -1;
+            position: absolute;
+        }
+
+        #main{
+            height: 100vh;
+            width: 385px;
+            /*background-color: red;*/
+            margin: auto;
+            z-index: 1;
+            display: grid;
+            grid-template-rows: 75px 60% 135px;
+            grid-row-gap: 20px;
+
+
+        }
+
+        .heading-bar{
+            font-family: Montserrat-Bold;
+            font-size: 20px;
+            color: #FFFFFF;
+            text-align: center;
+            top: 50px;
+            position: relative;
+
+
+        }
+
+        .editorbox{
+
+            height: 100%;
+            width: inherit;
+            background: #ffffff;
+            border: 1px solid rgba(205,208,227,0.30);
+            border-radius: 24px;
+            overflow: scroll;
+
+        }
+
+        .footer{
+
+            display: grid;
+            grid-template-rows: 65px 50px;
+            grid-row-gap: 20px;
+
+        }
+
+        .footer-text{
+
+            font-family: Montserrat-SemiBold;
+            font-size: 14px;
+            color: #0000AF;
+            text-align: right;
+
+        }
+
+        .copybutton{
+
+            background: #0000AF;
+            border-radius: 10px;
+            font-family: Montserrat-Bold;
+            font-size: 16px;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #fontChosen{
+            background-color: #0000AF;
+            border-radius: 4px;
+            font-family: Montserrat-Medium;
+            font-size: 16px;
+            color: #FFFFFF;
+            border: #0000AF;
+            padding-left: 18px;
+            padding-right: 18px;
+            max-width: 150px;
+
+        }
+
+        .editor-header-text{
+
+            font-family: Montserrat-Medium;
+            font-size: 16px;
+            color: #0000AF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .droparrow{
+
+            background: #F0EDED;
+            border-radius: 4px;
+            padding-left: 9px;
+            padding-right: 11px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+
+        }
+
+        .editor-header{
+
+            margin-top: 20px;
+            margin-left: 20px;
+            display: grid;
+            grid-template-columns: 94px 150px 30px;
+            grid-column-gap: 10px;
+            width: 375px;
+            height: 30px;
+
+        }
+
+        .fontlets {
+            position: relative;
+            width: 80px;
+            height: 24px;
+            font-family: Montserrat-Medium;
+            font-size: 12px;
+            color: #0000AF;
+            margin-top: 15px;
+            background: #F0EDED;
+            border-radius: 3.2px;
+            border: #F0EDED;
+            margin-left: 8px;
+        }
+
+        .wrapper{
+
+            padding-left: 12px;
+            display: none;
+
+        }
+
+        .textarea{
+
+            margin-top: 12px;
+            width: 345px;
+            height: 435px;
+            margin-left: 20px;
+            resize: none;
+            border: none;
+            outline: none;
+            font-family: 'Roboto Thin', 'Helvetica Neue',sans-seriff;
+            font-size: 16px
+
+        }
+
+        .editorbox-footer{
+
+            opacity: 0.5;
+            font-family: Montserrat-Medium;
+            font-size: 14px;
+            color: #0000AF;
+            margin-top: 3px;
+
+        }
+
+        .relative{
+            position: relative;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="background-wave">
+<svg width="375px" height="500px" viewBox="0 0 375 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,0 L1680,0 L1680,392.225832 C1439.55589,248.526941 1160.85686,248.526941 843.902904,392.225832 C526.948947,535.924723 245.647979,535.924723 0,392.225832 L0,0 Z" id="Rectangle-Copy-4" fill="#0000AF"></path>
+    </g>
+</svg>
+</div>
+
+<section class="mainbox" id="main">
+
+<div class="heading-bar">IGCAPTION</div>
+
+<div>
+    <div class="editorbox">
+
+        <div class="editor-header relative">
+
+            <div class="editor-header-text">Text Styles :</div>
+            <button id="fontChosen" style="outline: none">Normal</button>
+            <div class="droparrow" onclick="fun(this)" data-dropped="false" id="font">
+                <svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                        <g id="main-page" transform="translate(-881.000000, -126.000000)" stroke="#0000AF" stroke-width="2">
+                            <polyline id="back" points="892 127 887 132 882 127"></polyline>
+                        </g>
+                    </g>
+                </svg></div>
+
+        </div>
+        <div class="wrapper relative" id="wrapper">
+
+            <button class="fontlets">Normal</button>
+            <button class="fontlets">Normal</button>
+            <button class="fontlets">Normal</button>
+            <button class="fontlets">Normal</button>
+            <button class="fontlets">Normal</button>
+            <button class="fontlets">Normal</button>
+            <button class="fontlets">Normal</button>
+            <button class="fontlets">Normal</button>
+
+        </div>
+        <div style="margin-left: 42px;margin-top: 12px;" class="relative">
+
+
+            <svg width="302px" height="9px" viewBox="0 0 302 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.0994233631">
+                    <g id="main-page-copy" transform="translate(-689.000000, -236.000000)" fill="#000000" fill-rule="nonzero">
+                        <path id="Path-3-Copy" d="M990.486664,235.998356 L990.51333,243.998311 L989.513336,244.001644 L989.501,240.501 L690.501,241.497 L690.51333,244.998311 L689.513336,245.001644 L689.48667,237.001689 L690.486664,236.998356 L690.498,240.498 L989.498,239.502 L989.48667,236.001689 L990.486664,235.998356 Z"></path>
+                    </g>
+                </g>
+            </svg>
+
+        </div>
+
+        <textarea class="textarea relative" id="editor" placeholder="Write Your Caption..."></textarea>
+
+        <div style="margin-left: 42px;margin-top: 12px;" class="relative">
+
+
+            <svg width="302px" height="9px" viewBox="0 0 302 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.0994233631">
+                    <g id="main-page-copy" transform="translate(-689.000000, -236.000000)" fill="#000000" fill-rule="nonzero">
+                        <path id="Path-3-Copy" d="M990.486664,235.998356 L990.51333,243.998311 L989.513336,244.001644 L989.501,240.501 L690.501,241.497 L690.51333,244.998311 L689.513336,245.001644 L689.48667,237.001689 L690.486664,236.998356 L690.498,240.498 L989.498,239.502 L989.48667,236.001689 L990.486664,235.998356 Z"></path>
+                    </g>
+                </g>
+            </svg>
+
+        </div>
+
+        <div class="editorbox-footer relative">
+            <center>Type “:” to get emoji suggestions</center>
+
+        </div>
+
+    </div>
+</div>
+
+    <div class="footer">
+<div>
+    <div class="footer-text" style="margin-top: 1px"><span>0</span> Line breaks generated</div>
+    <div class="footer-text" style="margin-top: 5px;"><span>0</span> / 2200 Characters</div>
+    <div class="footer-text" style="margin-top: 5px;"><span>0</span> / 30 Hastags</div>
+</div>
+        <div class="copybutton">
+
+COPY & CONVERT
+
+        </div>
+    </div>
+
+</section>
+
+
+<script>
+
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    $(document).ready(function(){
+
+        var firstRow=75;
+        var secondRow=$(window).height()-135-75-20-20-38;
+        var thirdRow=135;
+        document.getElementById("main").style.gridTemplateRows=firstRow+"px "+secondRow+"px "+thirdRow+"px";
+        document.getElementById("editor").style.height=(secondRow-168)+"px";
+        if($(window).width()<415) {
+            document.getElementById('main').style.width =$(window).width()-30+"px";
+            document.getElementById('editor').style.width =$(window).width()-30-40+"px";
+        }
+
+    });
+
+    $(window).resize(function() {
+
+        var firstRow=75;
+        var secondRow=$(window).height()-135-75-20-20-38;
+        var thirdRow=135;
+        document.getElementById("main").style.gridTemplateRows=firstRow+"px "+secondRow+"px "+thirdRow+"px";
+        if(document.getElementById('font').getAttribute("data-dropped")==="true"){
+            document.getElementById("editor").style.height=(secondRow-168-78)+"px";
+        }
+        else{
+            document.getElementById("editor").style.height=(secondRow-168)+"px";
+        }
+
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    });
+
+    function fun(el){
+
+    if(el.getAttribute("data-dropped")==="true"){
+
+        document.getElementById('wrapper').style.display="none";
+
+        document.getElementById('editor').style.height=(parseInt(document.getElementById('editor').style.height.split("px")[0])+78)+"px";
+
+
+
+        el.setAttribute("data-dropped","false");
+
+    }
+    else{
+        document.getElementById('wrapper').style.display="block";
+
+        document.getElementById('editor').style.height=(parseInt(document.getElementById('editor').style.height.split("px")[0])-78)+"px";
+
+        el.setAttribute("data-dropped","true");
+    }
+
+    }
+
+</script>
+</body>
+</html>

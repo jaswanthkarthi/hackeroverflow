@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,700,900" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>IGC</title>
+
+    <style>
+    @keyframes tracking-in-expand-fwd-bottom {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-700px) translateY(500px);
+            transform: translateZ(-700px) translateY(500px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+        @keyframes fade-in-top {0%{transform: translateY(-50px);opacity: 0;}100%{transform: translateY(0px);opacity: 1;}}
+        html,body{margin: 0;}
+        html{ font-size: 100%; }
+        body{background-color: black;}
+        video{position: absolute;left: 0;top: 0;width: 100%;height: 891px;-o-object-fit: cover;object-fit: cover;}
+        #primary { width:100%;height: 2891px;}
+        #secondary { width:100%; margin:0; border:none;height: 891px;}
+        #firstpage{width: 100%;z-index: 2;height: inherit;}
+        .absolute{position: absolute;}
+        #main-1{width: 1300px;margin: auto;height: inherit;max-width: 1280px}
+        #header{width: 100%;height:13.69%;min-height: 13.69%;}
+        .content{font-family: Montserrat;}
+        .bold{font-weight: bold;font-size: 312%;opacity:1;}
+        .medium{font-weight: 500;font-size: 156%;}
+        #margin-insteadGrid{ width: 100%;height: 86.30%;display: grid;grid-template-rows: 0% 83.74%;grid-row-gap: 16.25%; }
+        #container-1{width: 100%;height: 100%;display: grid;grid-template-rows: 43.01% 11.64%;grid-row-gap: 19.40%;}
+        .button{background-color: #54C61E;width: 281px;font-size: 25px;}
+        .center-all{display: flex;justify-content: center;align-items: center;}
+        .white{color: white;}
+        #video-section{z-index: -1;height: inherit;width: 100%;}
+        .center{}
+        .center-vertical{display: flex;align-items: center;}
+        .header-style{font-family: Montserrat;font-size: 18px;font-weight: bold;color: white;}
+        #ul-lists ul{margin: 0;list-style: none;padding: 0;}
+        #ul-lists ul li{display: inline-block;padding-left: 25px;padding-right: 25px;text-decoration: none;}
+        #ul-lists ul li a{text-decoration: none;font-family: Montserrat;font-size: 18px;font-weight: bold;color: white;}
+        .display-none{display: block;}
+        .transition{transition: all .5s;}
+        #emoji-page{height: 891px;width: 100%;background-color: white;}
+        #emoji-margin-container{width: 1024px;margin: 0 auto;height: inherit;display: flex;align-items: center;}
+        #emoji-text-container{width: 858px;margin: 0 auto;max-width: 858px;height: 644px;display: flex;justify-content: center;align-items: center;}
+        #emoji-text{text-align: center;padding-left: 10px;padding-right: 10px;}
+        #emoji-text-heading{color: black;font-family: Montserrat;font-size: 312%;font-weight: bold;}
+        #emoji-text-normal{color: black;font-family: Montserrat;font-size: 249.5%;font-weight: 400;margin-top: 25px;}
+        .emoticons-img{position: absolute;height: 128px; width:128px;}
+        #emoticons-img-love_sym{top: 0;left: 448px;}
+        .left-50{left:calc(50% - 64px)}
+        .float-right{right: 0;}
+        .bottom-0{bottom: 0;}
+        .bottom-above{bottom: 9.47%;}
+        .top-below{top: 9.47%;}
+        #end-page{height:479px;width: 100%;background-color: #181427;display: flex;align-items: center;}
+        #endpage-container{height:280px;width:414px;margin: 0 auto;display: flex;justify-content: center;align-items: center;}
+        #endpage-text{text-align: center;padding-left: 10px;padding-right: 10px;}
+        #endpage-text-heading{color: white;font-family: Montserrat;font-size: 50px;font-weight: bold;}
+        #endpage-text-normal{color: white;font-family: Montserrat;font-size: 20px;font-weight: 400;margin-top: 20px;line-height: 30px;}
+        .button-endpage {height: 56px;width: 210px;background-color: #54C61E;font-size: 20px;font-family: Montserrat;margin: auto;margin-top: 50px;}
+        #hiw-page{height: 891px;width: 100%;background-color: #FBFBFB;}
+        #hiw-container{height: inherit;display: flex;flex-direction: row;width: 1480px;margin: auto;}
+        #hiw-mainImg{width: 50%;height: inherit;}
+        #hiw-text-container{width: 50%;height: inherit;display: flex;align-items: center;justify-content: center;}
+        .hiw-handImg{width: 500px;height: 500px;margin-top: 243px;}
+        .center-horizontal{display: flex;justify-content: center;}
+        .hiw-box{height: fit-content;width: inherit;}
+        #hiw-textContainer2{width: calc(100% - 21%);height: 75%;}
+        #hiw-mainHeading{color: black;font-family: Montserrat;font-size: 50px;font-weight: bold;margin-top: 30px;}
+
+        @media screen and (max-width: 1400px) {
+            #main-1{width: 90%;}
+        }
+        @media screen and (max-width: 750px) {
+            .center{display: flex;justify-content: center;}
+            .bold{font-weight: bold;font-size: 290%;}
+            .medium{font-weight: 500;font-size: 145%;}
+            #ul-lists ul{margin: 0;list-style: none;padding: 0;display: block;position: absolute;width: 100vw;}
+            #ul-lists ul li{display: block;padding-left: 25px;padding-right: 25px;text-decoration: none;}
+            #container-1{grid-row-gap: 15%;}
+            .content{text-align: center;}
+
+        }
+
+        @media screen and (max-width: 500px) {
+            #main-1 {width: 95%;}
+.logo{margin-left: 25px}
+            .bold{font-weight: bold;font-size: 260%;}
+            .medium{font-weight: 500;font-size: 130%;}
+            #secondary { width:100%; margin:0; border:none;height: 800px;}
+            video{height: 800px;}
+        }
+
+        @media screen and (max-width: 420px) {
+            .bold{font-weight: bold;font-size: 220%}
+            .medium{font-weight: 500;font-size: 110%;}
+            #container-1{grid-row-gap: 15%;}
+            .button{width: 230px;font-size: 20px;}
+
+        }
+
+        @media screen and (max-width: 355px) {
+            .bold{font-weight: bold;font-size: 180%;}
+            .medium{font-weight: 500;font-size: 100%;}
+            #container-1{grid-row-gap: 18%;}
+            #secondary { width:100%; margin:0; border:none;height: 700px;}
+            video{height: 700px;}
+
+        }
+        @media screen and (max-width: 290px) {
+            #container-1{grid-row-gap: 17%;}
+            .button{width: 220px;font-size: 19px;}
+        }
+        ul,li{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        nav{height: inherit;width: inherit;}
+        nav ul{float: right;}
+        nav ul li{display: inline-block;}
+        nav ul li a{color: white;font-family: Montserrat;font-size: 18px;font-weight: bold;text-decoration: none;padding: 0px 25px;}
+.check{font-size: 30px;color: white;float: right;margin-right: 25px;}
+.display{display: none;}
+
+        @media screen and (max-width: 950px) {
+            .display{display: block;}
+            ul{position: fixed;width:90%;top: 122px;text-align: center;padding-top: 15px;padding-bottom: 15px;background-color: black;z-index:5;}
+            nav ul li{display: block;padding-top: 15px;padding-bottom: 15px;}
+            .display-none{display: none;}
+            li:hover {background-color: #47434E;}
+
+
+        }
+
+        @media screen and (max-width: 1024px) {
+            #emoji-margin-container{width: 100%;margin: 0 auto;height: inherit;display: flex;
+                align-items: center;}
+        }
+
+        @media screen and (max-width: 858px) {
+            #emoji-text-container{width: 100%;}
+        }
+
+        @media screen and (max-width: 440px) {
+            #emoji-text-container{width: 100%;}
+            .emoticons-img{height: 110px; width: 110px;}
+            .left-50{left: calc(50% - 55px);}
+            #emoji-text-heading{font-size: 260%;}
+            #emoji-text-normal{font-size: 208%;}
+        }
+
+    @media screen and (max-width: 360px) {
+        #emoji-text-container{width: 100%;height: 544px;}
+        #emoji-page{height: 741px;}
+        .emoticons-img{height: 90px; width: 90px;}
+        .left-50{left: calc(50% - 45px);}
+        #emoji-text-heading{font-size: 200%;}
+        #emoji-text-normal{font-size: 160%;}
+    }
+
+    @media screen and (max-width: 290px) {
+        .emoticons-img{height: 80px; width: 80px;}
+        .left-50{left: calc(50% - 40px);}
+        #emoji-text-heading{font-size: 200%;}
+        #emoji-text-normal{font-size: 160%;}
+    }
+
+    @media screen and (max-width: 414px) {
+        #endpage-container{width: 100%;}
+    }
+
+    @media screen and (max-width: 400px) {
+        #endpage-text-heading{font-size: 200%;}
+    }
+
+    @media screen and (max-width: 390px) {
+        #endpage-text-normal{font-size: 110%;line-height: 25px;}
+        #endpage-container{height: 350px;}
+    }
+
+
+    @media screen and (max-width: 320px) {
+        #endpage-text-normal{font-size: 100%;line-height: 25px;}
+        #endpage-container{height: 350px;}
+    }
+
+
+    @media screen and (max-width: 1480px) {
+        #hiw-container{width: 100%}
+    }
+
+    .hiw-con-text-3{
+
+        display: grid;
+        grid-template-columns: 13.1% calc(86.9% - 30px);
+        grid-column-gap: 30px;
+        width: inherit;
+
+    }
+
+    .hiw-number-grid{
+
+        grid-column-start: 1;
+        grid-column-end: 1;
+        width: inherit;
+
+    }
+
+    .hiw-con-number-design{
+
+        background: #FF9900;
+        padding: 5px;
+        border-radius: 20px;
+        font-family: Montserrat-SemiBold;
+        font-size: 30px;
+        color: #FFFFFF;
+        height: 64px;
+        border: 1px solid #FF9900;
+        width: 64px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-clip: content-box;
+
+    }
+
+    .hiw-layer-textstyle-1{
+
+        font-family: Montserrat-Bold;
+        font-size: 22px;
+        color: #000000;
+        line-height: 1.4;
+        width: inherit;
+
+    }
+
+    .hiw-layer-textstyle-2{
+
+        font-family: Montserrat-Medium;
+        font-size: 18px;
+        color: #000000;
+        line-height: 1.6;
+        width: inherit;
+
+    }
+
+        #hiw-content{
+            margin-top: 75px;
+        }
+
+
+    @media screen and (max-width: 1080px) {
+        #hiw-mainHeading{font-size: 45px;}
+        .hiw-con-number-design{height: 54px;width: 54px;opacity: 0.8;}
+        .hiw-handImg{width: 450px;height: 450px;opacity: 0.6;}
+        .hiw-layer-textstyle-1{font-size: 21px;}
+        #hiw-container{flex-direction: unset;justify-content: center;align-items: center;}
+        #hiw-mainImg{position: absolute;width: 100%;}
+        #hiw-text-container{width: 90%;z-index: 5;}
+        #hiw-mainHeading{text-align: center;}
+        #hiw-textContainer2{width: calc(100% - 30%);}
+    }
+
+    @media screen and (max-width: 650px) {
+        #hiw-textContainer2{width: calc(100% - 10%);}
+    }
+
+    @media screen and (max-width: 475px) {
+        #hiw-mainHeading{font-size: 250%;}
+        .hiw-con-number-design{height: 50px;width: 50px;opacity: 0.8;}
+        .hiw-layer-textstyle-1{font-size: 20px;}
+        .hiw-layer-textstyle-2{font-size: 17px;}
+        .hiw-handImg{width: 350px;height: 350px;opacity: 0.6;}
+    }
+
+    @media screen and (max-width: 420px) {
+        #hiw-mainHeading{font-size: 220%;}
+        .hiw-con-number-design{height: 45px;width: 45px;opacity: 0.8;}
+        .hiw-layer-textstyle-1{font-size: 19px;}
+        .hiw-layer-textstyle-2{font-size: 16px;}
+    }
+
+    @media screen and (max-width: 365px) {
+        #hiw-mainHeading{font-size: 180%;}
+        #hiw-textContainer2{width: calc(100% - 8%);}
+        .hiw-layer-textstyle-1{font-size: 18px;}
+        .hiw-layer-textstyle-2{font-size: 15px;}
+        .hiw-con-number-design{height: 40px;width: 40px;opacity: 0.8;}
+        .hiw-handImg{width: 300px;height: 300px;opacity: 0.6;margin-top: 0px;}
+        #hiw-mainImg{display: flex;justify-content: center;align-items: center;}
+
+    }
+
+    @media screen and (max-width: 340px) {
+        #hiw-text-container {align-items: unset;}
+        #hiw-textContainer2{margin-top: 50px;}
+    }
+
+    @media screen and (max-width: 310px) {
+        #hiw-mainHeading{font-size: 160%;}
+        .hiw-layer-textstyle-1{font-size: 17px;}
+        .hiw-layer-textstyle-2{font-size: 14px;}
+        .hiw-con-number-design{height: 35px;width: 35px;opacity: 0.8;}
+        .hiw-handImg{width: 250px;height: 250px;}
+    }
+    @media screen and (max-width: 285px) {
+        .hiw-layer-textstyle-1{font-size: 15px;}
+        #hiw-mainHeading{font-size: 150%;}
+    }
+
+    </style>
+</head>
+<body>
+<section id="primary" class="font-size">
+    <!--video page-->
+    <section id="secondary" class="font-size">
+        <section id="video-section" class="absolute">
+            <video class="intro-loop" muted="" playsinline="" autoplay loop="" style="opacity: 1;">
+                <source src="/hackeroverflow/mp4/final.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section id="firstpage" class="absolute font-size">
+            <section id="main-1">
+                <section id="header" class="center-vertical" style="font-family: Montserrat;">
+<nav>
+    <label class="check display" style="margin-top: -7.5px;">
+        <i class="fas fa-bars click"></i>
+    </label>
+    <label class="header-style logo">IGCaption</label>
+                        <ul id="header-nav" class="display-none">
+                            <li><a href="">ABOUT THIS</a></li>
+                            <li><a href="">HOW IT WORKS</a></li>
+                            <li><a href="">FEATURES</a></li>
+                            <li><a href="">TRY FOR FREE</a></li>
+                        </ul>
+</nav>
+                </section>
+                <section id="margin-insteadGrid">
+                    <section></section>
+                <section id="container-1" class="white">
+                    <div class="content">
+                        <div>
+                        <div style="">
+                            <div class="bold center">Write beautifully</div>
+                            <div class="bold center">formatted caption</div>
+                            <div class="bold center">for Instagram post</div>
+                        </div>
+                        </div>
+                        <div>
+                        <div style="margin-top: 30px;">
+                            <div class="medium center">Dont forget to tag us using</div>
+                            <div class="medium center" style="margin-top: 3px;">#MadeWithIgcaptions</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="center" style="height: 75px;"><div class="button center-all" style="height: inherit;font-weight: bold;font-family: Montserrat;border-radius: 5px;">
+TRY FOR FREE
+                    </div>
+                    </div>
+                </section>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <section id="emoji-page">
+        <section id="emoji-margin-container">
+<section id="emoji-text-container">
+    <section style="position: absolute;height: inherit; width: inherit;">
+    <img src="/hackeroverflow/images/heart.png" class="emoticons-img top-below" ondragstart="return false">
+    <img src="/hackeroverflow/images/heart.png" class="emoticons-img left-50" ondragstart="return false">
+    <img src="/hackeroverflow/images/angry.png" class="emoticons-img float-right top-below" ondragstart="return false">
+    <img src="/hackeroverflow/images/Haha_face.png" class="emoticons-img bottom-0 bottom-above" ondragstart="return false">
+    <img src="/hackeroverflow/images/Sad_face.png" class="emoticons-img left-50 bottom-0" ondragstart="return false">
+    <img src="/hackeroverflow/images/Wow_face.png" class="emoticons-img float-right bottom-0 bottom-above" ondragstart="return false">
+    </section>
+<section id="emoji-text">
+    <section id="emoji-text-heading">EMOTICONS</section>
+    <section id="emoji-text-normal">Communicate better with emojis for more followers and engagement</section>
+
+</section>
+</section>
+        </section>
+    </section>
+
+
+    <section id="hiw-page">
+
+        <section id="hiw-container">
+            <section id="hiw-mainImg" class="center-horizontal">
+                <img src="/hackeroverflow/images/hand.svg" class="hiw-handImg" ondragstart="return false">
+            </section>
+            <section id="hiw-text-container" class="center-horizontal" style="">
+                <section id="hiw-textContainer2">
+                    <div id="hiw-mainHeading">HOW IT WORKS</div>
+                    <div id="hiw-content">
+                        <div class="hiw-box">
+
+                            <div class="hiw-con-text-3" id="hiw-anim-3">
+
+                                <div class="hiw-number-grid">
+
+                                    <div class="hiw-con-number-design">1</div>
+
+                                </div>
+
+                                <div class="hiw-text-grid">
+
+                                    <div class="hiw-layer-textstyle-1">WRITE YOUR CAPTION</div>
+
+                                    <div class="hiw-layer-textstyle-2" style="margin-top:16px;">Write you caption how you want it to appear. IGCaptions will track your character count and hashtags</div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hiw-box" style="margin-top: 50px;">
+                            <div class="hiw-con-text-3">
+
+                                <div class="hiw-number-grid">
+
+                                    <div class="hiw-con-number-design">2</div>
+
+                                </div>
+
+                                <div class="hiw-text-grid">
+
+                                    <div class="hiw-layer-textstyle-1">TAP COPY & CONVERT</div>
+
+                                    <div class="hiw-layer-textstyle-2" style="margin-top:16px;">IGCaption will automagically covert your caption so that it’s formatted correctly for Instagram</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hiw-box" style="margin-top: 50px;">
+                            <div class="hiw-con-text-3">
+
+                                <div class="hiw-number-grid">
+
+                                    <div class="hiw-con-number-design">3</div>
+
+                                </div>
+
+                                <div class="hiw-text-grid">
+
+                                    <div class="hiw-layer-textstyle-1">PASTE IN INSTAGRAM</div>
+
+                                    <div class="hiw-layer-textstyle-2" style="margin-top:16px;">Open up Instagram and paste your caption into your post and publish it's as simple as that</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+    </section>
+
+
+    <section id="end-page">
+        <section id="endpage-container">
+            <section id="endpage-text">
+                <section id="endpage-text-heading">IGCAPTIONS</section>
+                <section id="endpage-text-normal">Write beautifully  formatted captions for
+                    Instagram post in 30 seconds
+                    #MadeWithIgcaptions</section>
+                <section class="button-endpage center-all" style="border-radius: 5px;font-weight: bold;color: white;">
+                    TRY FOR FREE
+                </section>
+            </section>
+        </section>
+    </section>
+
+</section>
+
+<script>
+// function show() {
+//     if(document.getElementById('header-nav').className==="display-none"){
+//         document.getElementById('header-nav').className="transition";
+//     }
+//     else{
+//         document.getElementById('header-nav').className="display-none";
+//     }
+//
+//
+$('.click').on('click', function () {
+
+    if($('#header-nav').hasClass('display-none')) {
+        $('#header-nav').removeClass('display-none');
+        $('#header-nav').addClass('transition');
+    }
+    else{
+        $('#header-nav').removeClass('transition');
+        $('#header-nav').addClass('display-none');
+    }s
+
+});
+
+</script>
+
+</body>
+</html>
+
+
